@@ -1,0 +1,12 @@
+<% content_for :title, "Editing my book" %>
+
+<h1>Editing my book</h1>
+
+<%= render "form", my_book: @my_book %>
+
+<br>
+
+<div>
+  <%= link_to "Show this my book", @my_book %> |
+  <%= link_to "Back to my books", my_books_path %>
+</div>

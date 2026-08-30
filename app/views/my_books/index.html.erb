@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "My books" %>
+
+<h1>My books</h1>
+
+<div id="my_books">
+  <% @my_books.each do |my_book| %>
+    <%= render my_book %>
+    <p>
+      <%= link_to "Show this my book", my_book %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New my book", new_my_book_path %>
