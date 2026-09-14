@@ -1,5 +1,5 @@
 class BookController < ApplicationController
-  def home
+  def index
     @books = Book.order(:id)
   end
 
@@ -13,8 +13,8 @@ class BookController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    if book.save
-      redirect_to(book_path)
+    if @book.save
+      redirect_to(root_path)
     else
       render('new')
     end
@@ -22,11 +22,11 @@ class BookController < ApplicationController
   end
 
   def edit
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
     if @book.update(book_params)
       redirect_to(book_path(@book))
     else
@@ -40,8 +40,8 @@ class BookController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-    @Book.destroy
-    redirect_to(tasks_path)
+    @book.destroy
+    redirect_to(root_path)
   end
   
   private

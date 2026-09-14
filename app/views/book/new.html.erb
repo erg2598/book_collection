@@ -1,2 +1,16 @@
-<h1>Book#new</h1>
-<p>Find me in app/views/book/new.html.erb</p>
+
+<%= link_to("Back to Home", root_path, class: 'back-link') %>
+
+<div class="books new">
+    <h2>Create Book</h2>
+
+    <%= form_for(@book) do |f| %>
+        <% #url : tasks_path, method: 'post' %>
+
+        <%= render(partial: 'form', locals: {f: f})%>
+
+        <div class="form-buttons">
+            <%= f.submit("Create Book") %>
+        </div>
+    <% end %>
+</div>
