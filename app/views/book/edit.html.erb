@@ -1,2 +1,16 @@
-<h1>Book#update</h1>
-<p>Find me in app/views/book/update.html.erb</p>
+
+<%= link_to("Back to Home", root_path, class: 'back-link') %>
+
+<div class="books new">
+    <h2>Edit Book</h2>
+
+    <%= form_for(@book) do |f| %>
+        <% #url : tasks_path(@task), method: 'patch' %>
+
+        <%= render(partial: 'form', locals: {f: f})%>
+
+        <div class="form-buttons">
+            <%= f.submit("Edit Book") %>
+        </div>
+    <% end %>
+</div>
