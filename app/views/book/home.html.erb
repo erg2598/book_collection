@@ -1,2 +1,23 @@
-<h1>Book#home</h1>
-<p>Find me in app/views/book/home.html.erb</p>
+
+<div class="tasks index">
+  <h2>Books</h2>
+
+  <%= link_to("Add New Book", "#", class: 'action new') %>
+
+  <table class="listing" summary="Book list" style="width: 100%;">
+    <tr class="header">
+      <th>Book</th>
+      <th>Actions</th>
+    </tr>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td class="actions">
+        <%= link_to("Show", book_path(book), class: 'action show') %>
+        <%= link_to("Edit", edit_book_path(book), class: 'action edit') %>
+        <%= link_to("Delete", delete_book_path(book), class: 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
