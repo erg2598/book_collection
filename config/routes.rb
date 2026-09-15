@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
   
-  root "book#home"
-  get "book/new"
-  get "book/update"
-  get "book/show"
-  get "book/delete"
+  root "book#index"
+  resources :books, controller: "book" do
+    member do
+      get :delete
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
