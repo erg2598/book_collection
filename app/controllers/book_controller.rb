@@ -14,7 +14,7 @@ class BookController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to(root_path)
+      redirect_to(root_path, notice: "Book created successfully!")
     else
       render('new')
     end
@@ -28,7 +28,7 @@ class BookController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      redirect_to(root_path)
+      redirect_to(root_path, notice: "Book updated successfully!")
     else
       render('edit')
     end
@@ -41,7 +41,7 @@ class BookController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to(root_path)
+    redirect_to(root_path, notice: "Book deleted successfully!")
   end
   
   private

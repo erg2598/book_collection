@@ -4,6 +4,12 @@
 
   <%= link_to("Add New Book", new_book_path, class: 'action new') %>
 
+  <% if flash[:notice] %>
+  <div class="popup">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
   <table class="listing" summary="Book list" style="width: 100%;">
     <tr class="header">
       <th>Book</th>
