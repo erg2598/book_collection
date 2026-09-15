@@ -64,7 +64,7 @@ end
 
 gem "dotenv-rails"
 
-gem "json", "~> 2.11"
+gem "json", "~> 3.0"
 
 group :development, :test do
   gem 'rspec-rails'
