@@ -7,7 +7,10 @@ RSpec.describe "Book creation", type: :request do
     it "creates a book and redirects the user" do
       # ARRANGE
       book_params = {
-        title: "Test Title"
+        title: "Test Title",
+        author: "Test Author",
+        price: 19.99,
+        published_date: Date.new(2026, 9, 14)
       }
       # ACT
       expect{post books_path, params: { book: book_params }}.to change(Book, :count).by(1)
@@ -39,7 +42,9 @@ describe "POST #create" do
   it "creates a book with an author" do
     book_params = {
       title: "Test Title",
-      author: "Test Author"
+      author: "Test Author",
+      price: 19.99,
+      published_date: Date.new(2026, 9, 14)
     }
 
     expect {
@@ -58,9 +63,10 @@ describe "POST #create" do
 
     expect {
       post books_path, params: { book: book_params }
-    }.to change(Book, :count).by(1)
+    }.to change(Book, :count).by(0)
 
-    expect(Book.last.author).to eq("")
+    expect(response).to render_template(:new)
+    expect(flash[:notice]).to eq(nil)
   end
 
 
@@ -68,7 +74,9 @@ describe "POST #create" do
   it "creates a book with a price" do
     book_params = {
       title: "Test Title",
-      price: 19.99
+      author: "Test Author",
+      price: 19.99,
+      published_date: Date.new(2026, 9, 14)
     }
 
     expect {
@@ -97,6 +105,8 @@ describe "POST #create" do
   it "creates a book with a published date" do
     book_params = {
       title: "Test Title",
+      author: "Test Author",
+      price: 19.99,
       published_date: Date.new(2026, 9, 14)
     }
 
