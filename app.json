@@ -1,0 +1,17 @@
+{
+  "name": "My Rails Review App",
+  "description": "Dynamic review app environment for pull requests.",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:essential-0"
+    }
+  ],
+  "env": {
+    "RAILS_ENV": {
+      "value": "test"
+    }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rails db:schema:load"
+  }
+}
